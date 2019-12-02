@@ -7,19 +7,9 @@ on:
       - 'v*.*.*'
 jobs:
   update-semver:
-    name: runner / misspell
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: ./
-        id: semver
         with:
           github_token: ${{ secrets.github_token }}
-      # - name: Push
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-      #     # git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-      #     git push --force origin ${{ steps.semver.outputs.minor_tag }}
-      #     git push --force origin ${{ steps.semver.outputs.major_tag }}
