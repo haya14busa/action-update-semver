@@ -1,0 +1,14 @@
+name: 'Update major/minor semver'
+description: 'Update major/minor semver on tag ver push (e.g. Update v1 and v1.2 tag when released v1.2.3) ref: https://help.github.com/en/articles/about-actions#versioning-your-action'
+author: 'haya14busa'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN.'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+# Ref: https://haya14busa.github.io/github-action-brandings/
+branding:
+  icon: 'refresh-cw'
+  color: 'green'
