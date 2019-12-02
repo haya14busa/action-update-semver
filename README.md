@@ -35,3 +35,29 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
 ```
+
+<details>
+
+<summary>oneliner</summary>
+
+```
+$ cat <<EOF > .github/workflows/update_semver.yml
+name: Update Semver
+on:
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*.*.*'
+jobs:
+  update-semver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: haya14busa/action-update-semver@v1
+        with:
+          github_token: \${{ secrets.github_token }}
+EOF
+```
+
+</details>
