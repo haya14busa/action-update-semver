@@ -13,6 +13,9 @@ if [ "${GITHUB_REF}" = "${TAG}" ]; then
   exit 1
 fi
 
+echo ::set-output name=minor_tag::${MINOR}
+echo ::set-output name=major_tag::${MAJOR}
+
 # Set up Git.
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
