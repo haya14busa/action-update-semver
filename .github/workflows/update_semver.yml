@@ -1,4 +1,4 @@
-name: Move Semver
+name: Update Semver
 on:
   push:
     branches-ignore:
@@ -6,7 +6,7 @@ on:
     tags:
       - 'v*.*.*'
 jobs:
-  move-semver:
+  update-semver:
     name: runner / misspell
     runs-on: ubuntu-latest
     steps:

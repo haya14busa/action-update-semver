@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag haya14busa-action-move-semver:$(date +%s)
+      run: docker build . --file Dockerfile --tag haya14busa-action-update-semver:$(date +%s)
