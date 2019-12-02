@@ -14,3 +14,9 @@ jobs:
       - uses: ./
         with:
           github_token: ${{ secrets.github_token }}
+      - name: Push
+        with:
+          github_token: ${{ secrets.github_token }}
+        run: |
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push --tags --force
