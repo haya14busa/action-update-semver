@@ -13,13 +13,15 @@ if [ "${GITHUB_REF}" = "${TAG}" ]; then
   exit 1
 fi
 
+MESSAGE="${INPUT_MESSAGE:-Release ${TAG}}"
+
 # Set up Git.
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
 # Update MAJOR/MINOR tag
-git tag -fa ${MAJOR} -m "Release ${TAG}"
-git tag -fa ${MINOR} -m "Release ${TAG}"
+git tag -fa ${MAJOR} -m "${MESSAGE}"
+git tag -fa ${MINOR} -m "${MESSAGE}"
 
 # Push
 git remote set-url origin https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git

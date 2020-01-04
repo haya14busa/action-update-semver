@@ -5,6 +5,9 @@ inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
     required: true
+  message:
+    description: 'Tag message.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
