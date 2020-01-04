@@ -36,11 +36,13 @@ jobs:
           github_token: ${{ secrets.github_token }}
 ```
 
+> Note: You need to use your [Personal Access Token](https://github.com/settings/tokens) if this workflow will be triggered by another one.
+
 <details>
 
 <summary>oneliner</summary>
 
-```
+```shell
 $ cat <<EOF > .github/workflows/update_semver.yml
 name: Update Semver
 on:
