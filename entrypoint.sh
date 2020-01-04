@@ -3,6 +3,8 @@ set -x
 
 cd "${GITHUB_WORKSPACE}"
 
+GITHUB_REF=${INPUT_GITHUB_REF:-$GITHUB_REF}
+
 # Set up variables.
 TAG="${GITHUB_REF#refs/tags/}" # v1.2.3
 MINOR="${TAG%.*}"              # v1.2

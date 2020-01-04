@@ -5,6 +5,9 @@ inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
     required: true
+  github_ref:
+    description: 'Optional. Overwrites GITHUB_REF.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
