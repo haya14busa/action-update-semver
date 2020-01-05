@@ -14,6 +14,10 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Required**. Must be in form of `github_token: ${{ secrets.github_token }}`'.
 
+### `message`
+
+**Optional**. Tag message. Default: `Release $TAG`
+
 ## Example usage
 
 ### [.github/workflows/update_semver.yml](.github/workflows/update_semver.yml)
