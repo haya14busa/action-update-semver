@@ -16,7 +16,7 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 ### `github_ref`
 
-**Optional**. Overwrites `$GITHUB_REF`. Must be in form of `github_ref: refs/tags/vX.X.X`'.
+**Optional**. Tag to update from (taken default from `$GITHUB_REF` by default).
 
 ## Example usage
 

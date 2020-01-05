@@ -5,8 +5,8 @@ inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
     required: true
-  github_ref:
-    description: 'Optional. Overwrites GITHUB_REF.'
+  tag:
+    description: 'Optional. Tag to update from (taken default from $GITHUB_REF by default).'
     required: false
 runs:
   using: 'docker'
