@@ -14,9 +14,9 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Required**. Must be in form of `github_token: ${{ secrets.github_token }}`'.
 
-### `github_ref`
+### `tag`
 
-**Optional**. Tag to update from (taken default from `$GITHUB_REF` by default).
+**Optional**. Tag to update from (taken from `$GITHUB_REF` by default).
 
 ## Example usage
 
