@@ -18,6 +18,10 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Optional**. Existing tag to update from. Default comes from `$GITHUB_REF`.
 
+### `message`
+
+**Optional**. Tag message. Default: `Release $TAG`
+
 ## Example usage
 
 ### [.github/workflows/update_semver.yml](.github/workflows/update_semver.yml)

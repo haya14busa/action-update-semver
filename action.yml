@@ -8,6 +8,9 @@ inputs:
   tag:
     description: 'Optional. Existing tag to update from. Default comes from $GITHUB_REF.'
     required: false
+  message:
+    description: 'Tag message.'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
