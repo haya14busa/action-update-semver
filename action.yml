@@ -6,7 +6,7 @@ inputs:
     description: 'GITHUB_TOKEN.'
     required: true
   tag:
-    description: 'Optional. Tag to update from (taken from $GITHUB_REF by default).'
+    description: 'Optional. Existing tag to update from. Default comes from $GITHUB_REF.'
     required: false
 runs:
   using: 'docker'

@@ -16,7 +16,7 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 ### `tag`
 
-**Optional**. Tag to update from (taken from `$GITHUB_REF` by default).
+**Optional**. Existing tag to update from. Default comes from `$GITHUB_REF`.
 
 ## Example usage
 
