@@ -4,9 +4,9 @@ set -x
 cd "${GITHUB_WORKSPACE}"
 
 # Set up variables.
-TAG="${GITHUB_REF#refs/tags/}" # v1.2.3
-MINOR="${TAG%.*}"              # v1.2
-MAJOR="${MINOR%.*}"            # v1
+TAG="${INPUT_TAG:-${GITHUB_REF#refs/tags/}}" # v1.2.3
+MINOR="${TAG%.*}"                            # v1.2
+MAJOR="${MINOR%.*}"                          # v1
 
 if [ "${GITHUB_REF}" = "${TAG}" ]; then
   echo "This workflow is not triggered by tag push: GITHUB_REF=${GITHUB_REF}"

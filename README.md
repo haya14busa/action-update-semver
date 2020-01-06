@@ -14,6 +14,10 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Required**. Must be in form of `github_token: ${{ secrets.github_token }}`'.
 
+### `tag`
+
+**Optional**. Existing tag to update from. Default comes from `$GITHUB_REF`.
+
 ### `message`
 
 **Optional**. Tag message. Default: `Release $TAG`

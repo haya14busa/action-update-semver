@@ -5,6 +5,9 @@ inputs:
   github_token:
     description: 'GITHUB_TOKEN.'
     required: true
+  tag:
+    description: 'Optional. Existing tag to update from. Default comes from $GITHUB_REF.'
+    required: false
   message:
     description: 'Tag message.'
     required: false
