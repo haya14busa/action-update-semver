@@ -11,6 +11,10 @@ inputs:
   message:
     description: 'Tag message.'
     required: false
+  major_version_tag_only:
+    description: 'Optional. Create only major version tags.'
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'

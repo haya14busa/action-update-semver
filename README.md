@@ -22,6 +22,10 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Optional**. Tag message. Default: `Release $TAG`
 
+### `major_version_tag_only`
+
+**Optional**. Create only major version tags. Default: `false`
+
 ## Example usage
 
 ### [.github/workflows/update_semver.yml](.github/workflows/update_semver.yml)
@@ -41,6 +45,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: haya14busa/action-update-semver@v1
         with:
+          major_version_tag_only: true  # (optional, default is "false")
           github_token: ${{ secrets.github_token }}
 ```
 
