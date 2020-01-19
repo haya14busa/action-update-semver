@@ -22,9 +22,9 @@ git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
 # Update MAJOR/MINOR tag
 git tag -fa "${MAJOR}" -m "${MESSAGE}"
-[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || [ "${MAJOR_VERSION_TAG_ONLY}" = "yes" ] && git tag -fa "${MINOR}" -m "${MESSAGE}"
+[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] && git tag -fa "${MINOR}" -m "${MESSAGE}"
 
 # Push
 git remote set-url origin "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || [ "${MAJOR_VERSION_TAG_ONLY}" = "yes" ] git push --force origin "${MINOR}"
+[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] && git push --force origin "${MINOR}"
 git push --force origin "${MAJOR}"
