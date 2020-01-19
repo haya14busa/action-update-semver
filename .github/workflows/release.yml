@@ -1,0 +1,34 @@
+name: release
+on:
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*.*.*'
+  pull_request:
+    types: [closed]
+
+jobs:
+  release:
+    # Skip on Pull Request Close event.
+    if: "!(github.event_name == 'pull_request' && !github.event.pull_request.merged)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        # Specify ref explicitly because it doesn't work with Pull Request closed event.
+        # https://github.com/actions/checkout/issues/136
+        with:
+          ref: ${{ github.ref }}
+
+      # Bump version on merging Pull Requests with specific labels. (bump:major,bump:minor,bump:patch)
+      - id: bumpr
+        if: github.event.pull_request.merged
+        uses: haya14busa/action-bumpr@v0
+
+      # Update corresponding major and minor tag. e.g. Update v1 and v1.2 when releasing v1.2.3
+      - name: haya14busa/action-update-semver
+        uses: ./
+        if: "!steps.bumpr.outputs.skip"
+        with:
+          github_token: ${{ secrets.github_token }}
+          tag: ${{ steps.bumpr.outputs.next_version }}
