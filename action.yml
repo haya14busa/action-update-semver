@@ -3,8 +3,8 @@ description: 'Updates major/minor release tags on a tag push'
 author: 'haya14busa'
 inputs:
   github_token:
-    description: 'GITHUB_TOKEN.'
-    required: true
+    description: 'GITHUB_TOKEN. Optional if you use checkout@v2 action.'
+    default: '${{ github.token }}'
   tag:
     description: 'Optional. Existing tag to update from. Default comes from $GITHUB_REF.'
     required: false
