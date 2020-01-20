@@ -10,10 +10,6 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 ## Inputs
 
-### `github_token`
-
-**Required**. Must be in form of `github_token: ${{ secrets.github_token }}`'.
-
 ### `tag`
 
 **Optional**. Existing tag to update from. Default comes from `$GITHUB_REF`.
@@ -25,6 +21,12 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 ### `major_version_tag_only`
 
 **Optional**. Create only major version tags. Default: `false`
+
+### `github_token`
+
+**Optional**. It's no need to specify it if you use checkout@v2. Required for
+checkout@v1 action.
+
 
 ## Example usage
 
@@ -42,11 +44,10 @@ jobs:
   update-semver:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: haya14busa/action-update-semver@v1
         with:
           major_version_tag_only: true  # (optional, default is "false")
-          github_token: ${{ secrets.github_token }}
 ```
 
 <details>
