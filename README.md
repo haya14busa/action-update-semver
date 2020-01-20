@@ -1,7 +1,9 @@
 # GitHub Action: Update major/minor semver
 
 [![Docker Image CI](https://github.com/haya14busa/action-update-semver/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/haya14busa/action-update-semver/actions)
+[![reviewdog](https://github.com/haya14busa/action-update-semver/workflows/reviewdog/badge.svg)](https://github.com/haya14busa/action-update-semver/actions?query=workflow%3Areviewdog)
 [![release](https://github.com/haya14busa/action-update-semver/workflows/release/badge.svg)](https://github.com/haya14busa/action-update-semver/actions?query=workflow%3Arelease)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/haya14busa/action-update-semver?logo=github&sort=semver)](https://github.com/haya14busa/action-update-semver/releases)
 
 This action updates major/minor release tags on a tag push.
 e.g. Update `v1` and `v1.2` tag when released `v1.2.3`.
