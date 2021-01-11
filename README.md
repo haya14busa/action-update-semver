@@ -8,7 +8,7 @@
 This action updates major/minor release tags on a tag push.
 e.g. Update `v1` and `v1.2` tag when released `v1.2.3`.
 
-It works well for GitHub Action. ref: https://help.github.com/en/articles/about-actions#versioning-your-action
+It works well for GitHub Action. ref: <https://help.github.com/en/articles/about-actions#versioning-your-action>
 
 ## Inputs
 
@@ -28,7 +28,6 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Optional**. It's no need to specify it if you use checkout@v2. Required for
 checkout@v1 action.
-
 
 ## Example usage
 
@@ -56,24 +55,22 @@ jobs:
 
 <summary>oneliner</summary>
 
-```
-$ cat <<EOF > .github/workflows/update_semver.yml
-name: Update Semver
-on:
-  push:
-    branches-ignore:
-      - '**'
-    tags:
-      - 'v*.*.*'
-jobs:
-  update-semver:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: haya14busa/action-update-semver@v1
-        with:
-          github_token: \${{ secrets.github_token }}
-EOF
-```
+    $ cat <<EOF > .github/workflows/update_semver.yml
+    name: Update Semver
+    on:
+      push:
+        branches-ignore:
+          - '**'
+        tags:
+          - 'v*.*.*'
+    jobs:
+      update-semver:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v1
+          - uses: haya14busa/action-update-semver@v1
+            with:
+              github_token: \${{ secrets.github_token }}
+    EOF
 
 </details>

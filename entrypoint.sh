@@ -20,7 +20,8 @@ MESSAGE="${INPUT_MESSAGE:-Release ${TAG}}"
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-# Update MAJOR/MINOR tag
+# Update PATCH/MAJOR/MINOR tag
+git tag -fa "${TAG}" -m "${MESSAGE}"
 git tag -fa "${MAJOR}" -m "${MESSAGE}"
 [ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git tag -fa "${MINOR}" -m "${MESSAGE}"
 
@@ -32,3 +33,4 @@ fi
 # Push
 [ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git push --force origin "${MINOR}"
 git push --force origin "${MAJOR}"
+git push --force origin "${TAG}"
