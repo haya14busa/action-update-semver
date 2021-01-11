@@ -1,24 +1,27 @@
-name: 'Update major/minor semver'
-description: 'Updates major/minor release tags on a tag push'
-author: 'haya14busa'
+name: "Update major/minor semver"
+description: "Updates major/minor release tags on a tag push"
+author: "haya14busa"
 inputs:
   github_token:
-    description: 'GITHUB_TOKEN. Optional if you use checkout@v2 action.'
-    default: '${{ github.token }}'
+    description: "GITHUB_TOKEN. Optional if you use checkout@v2 action."
+    default: "${{ github.token }}"
   tag:
-    description: 'Optional. Existing tag to update from. Default comes from $GITHUB_REF.'
+    description: "Optional. Existing tag to update from. Default comes from $GITHUB_REF."
     required: false
   message:
-    description: 'Tag message.'
+    description: "Tag message."
     required: false
   major_version_tag_only:
-    description: 'Optional. Create only major version tags.'
+    description: "Optional. Create only major version tags."
+    required: false
+  move_patch_tag:
+    description: "Optional. Move the patch tag to the latest commit."
     required: false
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
 # Ref: https://haya14busa.github.io/github-action-brandings/
 branding:
-  icon: 'refresh-cw'
-  color: 'green'
+  icon: "refresh-cw"
+  color: "green"
