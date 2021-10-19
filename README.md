@@ -24,11 +24,6 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 **Optional**. Create only major version tags. Default: `false`
 
-### `github_token`
-
-**Optional**. It's no need to specify it if you use checkout@v2. Required for
-checkout@v1 action.
-
 
 ## Example usage
 
@@ -69,10 +64,8 @@ jobs:
   update-semver:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: haya14busa/action-update-semver@v1
-        with:
-          github_token: \${{ secrets.github_token }}
 EOF
 ```
 

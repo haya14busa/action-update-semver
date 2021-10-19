@@ -24,11 +24,6 @@ git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git tag -fa "${MAJOR}" -m "${MESSAGE}"
 [ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git tag -fa "${MINOR}" -m "${MESSAGE}"
 
-# Set up remote url for checkout@v1 action.
-if [ -n "${INPUT_GITHUB_TOKEN}" ]; then
-  git remote set-url origin "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-fi
-
 # Push
 [ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git push --force origin "${MINOR}"
 git push --force origin "${MAJOR}"
