@@ -21,8 +21,8 @@ git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
 # Update MAJOR/MINOR tag
-git tag -fa "${MAJOR}" -m "${MESSAGE}"
-[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git tag -fa "${MINOR}" -m "${MESSAGE}"
+git tag -fa "${MAJOR}" -m "${MESSAGE}" "${TAG}^{}"
+[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git tag -fa "${MINOR}" -m "${MESSAGE}" "${TAG}^{}"
 
 # Set up remote url for checkout@v1 action.
 if [ -n "${INPUT_GITHUB_TOKEN}" ]; then
