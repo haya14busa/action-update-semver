@@ -1,6 +1,5 @@
 # GitHub Action: Update major/minor semver
 
-[![Docker Image CI](https://github.com/haya14busa/action-update-semver/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/haya14busa/action-update-semver/actions)
 [![reviewdog](https://github.com/haya14busa/action-update-semver/workflows/reviewdog/badge.svg)](https://github.com/haya14busa/action-update-semver/actions?query=workflow%3Areviewdog)
 [![release](https://github.com/haya14busa/action-update-semver/workflows/release/badge.svg)](https://github.com/haya14busa/action-update-semver/actions?query=workflow%3Arelease)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/haya14busa/action-update-semver?logo=github&sort=semver)](https://github.com/haya14busa/action-update-semver/releases)
@@ -26,7 +25,7 @@ It works well for GitHub Action. ref: https://help.github.com/en/articles/about-
 
 ### `github_token`
 
-**Optional**. It's no need to specify it if you use checkout@v2. Required for
+**Optional**. It's no need to specify it if you use checkout@v2 or later. Required for
 checkout@v1 action.
 
 
@@ -46,7 +45,7 @@ jobs:
   update-semver:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: haya14busa/action-update-semver@v1
         with:
           major_version_tag_only: true  # (optional, default is "false")
@@ -69,7 +68,7 @@ jobs:
   update-semver:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - uses: haya14busa/action-update-semver@v1
         with:
           github_token: \${{ secrets.github_token }}
