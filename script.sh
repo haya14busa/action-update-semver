@@ -32,3 +32,7 @@ fi
 # Push
 [ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || git push --force origin "${MINOR}"
 git push --force origin "${MAJOR}"
+
+# Set outputs for GitHub Actions
+echo "major=${MAJOR}" >> "${GITHUB_OUTPUT}"
+[ "${MAJOR_VERSION_TAG_ONLY}" = "true" ] || echo "minor=${MINOR}" >> "${GITHUB_OUTPUT}"

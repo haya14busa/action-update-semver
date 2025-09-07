@@ -15,10 +15,19 @@ inputs:
     description: 'Optional. Create only major version tags.'
     required: false
 
+outputs:
+  major:
+    description: 'The major version tag (e.g., v1)'
+    value: ${{ steps.update-tags.outputs.major }}
+  minor:
+    description: 'The minor version tag (e.g., v1.2)'
+    value: ${{ steps.update-tags.outputs.minor }}
+
 runs:
   using: 'composite'
   steps:
     - name: Update major/minor semver tags
+      id: update-tags
       shell: bash
       env:
         INPUT_TAG: ${{ inputs.tag }}
