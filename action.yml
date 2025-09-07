@@ -16,8 +16,16 @@ inputs:
     required: false
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: 'composite'
+  steps:
+    - name: Update major/minor semver tags
+      shell: bash
+      env:
+        INPUT_TAG: ${{ inputs.tag }}
+        INPUT_MESSAGE: ${{ inputs.message }}
+        INPUT_MAJOR_VERSION_TAG_ONLY: ${{ inputs.major_version_tag_only }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+      run: ${{ github.action_path }}/script.sh
 # Ref: https://haya14busa.github.io/github-action-brandings/
 branding:
   icon: 'refresh-cw'
