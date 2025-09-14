@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -ex
 
 cd "${GITHUB_WORKSPACE}" || exit
 
