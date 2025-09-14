@@ -26,8 +26,7 @@ jobs:
       - name: Verify Trusted Tag Releaser
         uses: actionutils/trusted-tag-verifier@v0
         with:
-          repository: 'actionutils/trusted-tag-releaser'
-          tag: 'v0'
+          verify: 'actionutils/trusted-tag-releaser@v0'
 
   # Post version bump information comment on PR when labeled
   release-preview-comment:
