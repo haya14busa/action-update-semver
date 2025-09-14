@@ -26,7 +26,10 @@ git tag -fa "${MAJOR}" -m "${MESSAGE}" "${TAG}^{}"
 
 # Set up remote url for checkout@v1 action.
 if [ -n "${INPUT_GITHUB_TOKEN}" ]; then
-  git remote set-url origin "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git"
+  server="${GITHUB_SERVER_URL}"
+  server="${server#https://}"
+  server="${server#http://}"
+  git remote set-url origin "https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@${server}/${GITHUB_REPOSITORY}.git"
 fi
 
 # Push
